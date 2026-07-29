@@ -1,0 +1,12 @@
+packages:
+  - "."
+
+ignoreScripts: true
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+savePrefix: ""
+
+overrides:
+  "@csstools/css-calc": "3.2.1"
+  "@csstools/css-color-parser": "4.1.9"
+  "@csstools/css-syntax-patches-for-csstree": "1.1.6"
