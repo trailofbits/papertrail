@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import type {
   NoteMessage,
@@ -41,9 +43,30 @@ function Message({
           {message.includedInGlobalContext ? "In global" : "+ Global"}
         </button>
       </div>
-      <p>
-        <LinkedText text={message.content} />
-      </p>
+      <div className="message-content">
+        {message.role === "assistant" ? (
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              a: ({ children, href, title }) => (
+                <a
+                  className="message-link"
+                  href={href}
+                  title={title}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  {children}
+                </a>
+              ),
+            }}
+          >
+            {message.content}
+          </ReactMarkdown>
+        ) : (
+          <LinkedText text={message.content} />
+        )}
+      </div>
     </article>
   );
 }
