@@ -26,7 +26,8 @@ pnpm dev
 
 Open `http://localhost:4173`, choose a PDF, select text, and click **Ask about this**.
 Native PDF hyperlinks remain interactive, including internal page destinations. Web links and
-Markdown links in note messages open in a new tab.
+Markdown links in note messages open in a new tab. AI replies render Markdown, including lists,
+tables, quotes, and code blocks.
 
 The server reads provider settings from `.env`:
 
